@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JavaScript实例</title>
+        <style type="text/css">
+            #cid{
+                width:400px;  
+                height:400px;
+                border:1px solid blue;
+                position:relative;
+                overflow:hidden;
+            }
+            #did{
+                width:50px;
+                height:50px;
+                background-color:red;
+                position:absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>JavaScript事件实例:键盘事件</h3>
+        <div id="cid">
+            <div id="did" style="top:0px;left:0px;"></div>
+        </div>
+        <script type="text/javascript">
+            var did = document.getElementById("did");
+            //为当前页面添加键盘事件
+            window.document.onkeydown=function(ent){
+                //获取兼容键盘事件
+                var ent = ent || window.event;
+                
+                //alert(ent.keyCode);
+                
+                //根据键盘值执行对应的操作
+                switch(ent.keyCode){
+                    case 38: //上
+                        did.style.top = Math.max(0,(did.offsetTop-5))+"px";
+                        break;
+                    case 39: //右
+                        did.style.left = Math.min(350,(did.offsetLeft+5))+"px";
+                        break;
+                    case 40: //下
+                        did.style.top = Math.min(350,(did.offsetTop+5))+"px";
+                        break;
+                    case 37: //左
+                        did.style.left = Math.max(0,(did.offsetLeft-5))+"px";
+                        break;
+                        
+                }
+            }
+        </script>
+    </body>
+</html>

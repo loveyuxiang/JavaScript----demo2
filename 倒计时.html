@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JavaScript实例</title>
+        
+    </head>
+    <body>
+        <h3>JavaScript作业：倒计时</h3>
+        <form action="" name="myform">
+            <input type="text" name="h" size="4"/>时
+            <input type="text" name="m" size="4"/>分
+            <input type="text" name="s" size="4"/>秒
+            <input type="button" onclick="doStart()" value="开始"/>
+        </form><br/>
+        <input type="button" onclick="doStop()" value="暂停"/>
+        <input type="button" onclick="doRun()" value="继续"/>
+        <div id="did" style="background-color:#ddd;width:180px;font-size:30px;">00:00:00</div>
+        
+        <script type="text/javascript">
+            //获取div节点
+            var did = document.getElementById("did");
+            var hh=0,mm=0,ss=0;
+            var mytime=null;
+            function doStart(){
+                if(mytime==null){
+                    //获取表单中的值
+                    hh = parseInt(document.myform.h.value);
+                    mm = parseInt(document.myform.m.value);
+                    ss = parseInt(document.myform.s.value);
+                    //开始倒计时
+                
+                    running();
+                }
+            }
+            
+            //运行的函数
+            function running(){
+                //执行倒计时
+                ss--;
+                if(ss<0){
+                    ss=59;
+                    mm--;
+                    if(mm<0){
+                        mm=59;
+                        hh--;
+                        if(hh<0){
+                            alert("倒计时结束！");
+                            return;
+                        }
+                    }
+                }
+                
+                //显示
+                did.innerHTML = hh+":"+mm+":"+ss;
+                
+                mytime = setTimeout("running()",1000);
+            }
+            
+            //暂停
+            function doStop(){
+                if(mytime!=null){
+                    clearTimeout(mytime);
+                    mytime=null;
+                }
+            }
+            
+            //继续
+            function doRun(){
+                if(mytime==null){
+                    running();
+                }
+            }
+        </script>
+    
+    </body>
+</html>

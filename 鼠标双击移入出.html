@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JavaScript实例</title>
+        <style type="text/css">
+            li{line-height:25px;background-color:#fff;}
+        </style>
+    </head>
+    <body>
+        <h3>JavaScript事件实例:鼠标双击和移入移出事件</h3>
+        <ul>
+            <li>aaaaaaaaaaa</li>
+            <li>aaaaaaaaaaa</li>
+            <li>aaaaaaaaaaa</li>
+            <li>aaaaaaaaaaa</li>
+            <li>aaaaaaaaaaa</li>
+            <li>aaaaaaaaaaa</li>
+        </ul>
+        <script type="text/javascript">
+            //获取上面所有的li节点
+            var list  = document.getElementsByTagName("li");
+            //循环所有的li节点
+            for(var i=0;i<list.length;i++){
+                //为每个li添加双击事件
+                list[i].ondblclick=function(){
+                    this.style.backgroundColor="#ddd";
+                    bgcolor="#ddd";
+                }
+                //添加鼠标移入事件
+                var bgcolor=null;
+                list[i].onmouseover=function(){
+                    bgcolor = this.style.backgroundColor;
+                    this.style.backgroundColor="#fc0";
+                }
+                //添加鼠标移出事件
+                list[i].onmouseout=function(){
+                    this.style.backgroundColor=bgcolor;
+                }
+            }
+            //alert(i);
+        </script>
+    </body>
+</html>

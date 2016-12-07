@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JS正反选</title>
+        
+    </head>
+    <body>
+        <h3>JavaScript：全选和反选、全不选</h3>
+        <ul id="uid">
+            <li><input type="checkbox" name="likes" value="1"/>最强王者</li>
+            <li><input type="checkbox" name="likes" value="2"/>大师</li>
+            <li><input type="checkbox" name="likes" value="3"/>钻石</li>
+            <li><input type="checkbox" name="likes" value="4"/>白金</li>
+            <li><input type="checkbox" name="likes" value="5"/>黄金</li>
+            <li><input type="checkbox" name="likes" value="6"/>白银</li>
+            <li><input type="checkbox" name="likes" value="7"/>青铜</li>
+            <li><input type="checkbox" name="likes" value="8"/>未满30</li>
+        </ul>
+        <li><input type="checkbox" name="likes" value="8"/>黄铜渣渣</li>
+        <button onclick="doCheck(1)">全选</button>
+        <button onclick="doCheck(2)">全不选</button>
+        <button onclick="doCheck(3)">反选</button>
+        
+        <script type="text/javascript">
+            function doCheck(b){
+                //获取所有的input选择框
+                var uid = document.getElementById("uid");
+                var list = uid.getElementsByTagName("input");
+                //遍历
+                for(var i=0;i<list.length;i++){
+                    switch(b){
+                        case 1: list[i].checked = true; break; 
+                        case 2: list[i].checked = false; break; 
+                        case 3: list[i].checked = !list[i].checked; break; 
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

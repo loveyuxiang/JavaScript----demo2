@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JavaScript实例</title>
+        <script type="text/javascript" src="./date/WdatePicker.js"></script>
+    </head>
+    <body>
+        <h3>JavaScript实例：String字串对象实现表单验证</h3>
+        <form action="a.php" method="post" name="myform" onsubmit="return doCheck()">
+        账号：<input type="text" name="uname"/>6-18的合法字符（字母数字下滑线）<br/><br/>
+        密码：<input type="password" name="upass"/><br/><br/>
+        年龄：<input type="text" name="age"/><br/><br/>
+        邮箱：<input type="text" name="email"/><br/><br/>
+        <input type="submit" value="提交"/>
+        <input type="reset" value="重置"/>
+        </form>
+        <script type="text/javascript">
+             //表单验证函数
+             function doCheck(){
+                //获取表单对象
+                var form  = document.myform;
+                //执行账号验证
+                if(form.uname.value.length==0){
+                    alert("账号不可以为空！");
+                    return false;
+                }
+                if(form.uname.value.match(/^[a-zA-Z0-9_]{6,18}$/)==null){
+                    alert("账号信息不合法！");
+                    return false;
+                }
+                return true;
+             }
+        </script>
+    </body>
+</html>

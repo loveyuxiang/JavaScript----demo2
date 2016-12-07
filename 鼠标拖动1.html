@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Event</title>
+        <style type="text/css">
+            body{margin:0px;padding:0px;text-align:center;background:#000;}
+            
+        </style>
+    </head>
+    <body>
+        <div id="box" style="width:200px;height:200px;background:#f00000;position:absolute;top:0;left:0">
+            
+        </div>
+    </body>
+    <script type="text/javascript" charset="utf-8">
+            var box = document.getElementById("box");
+            var srcX;
+            var srcY;
+            var desX;
+            var desY;
+            var w;
+            var h;
+            var isDown = false;
+
+            box.onmousedown = function(event){
+                var ent = event||window.event;
+                srcX = ent.clientX;
+                srcY = ent.clientY;
+                w = srcX - parseInt(this.style.left);
+                
+                h = srcY - parseInt(this.style.top);
+                isDown = true;
+            }
+            box.onmousemove = function(event){
+                if(isDown){
+                var ent = event||window.event;
+                desX = ent.clientX;
+                desY = ent.clientY;
+                //this.innerHTML = w;
+                this.style.top = desY - h + "px";
+                this.style.left = desX - w + "px";
+                }
+            }
+      
+            window.document.onmouseup = function(){
+                isDown = false;
+            }
+    </script>
+</html>

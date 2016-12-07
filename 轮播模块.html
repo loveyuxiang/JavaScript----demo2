@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JavaScript实例</title>
+        <style type="text/css">
+            #did{
+                width:400px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <h3>JavaScript事件实例:图片轮换播放效果</h3>
+        <div id="did">
+            <img src="./images/Meinv140.jpg" width="400"/>
+            <img src="./images/Meinv141.jpg" width="400" style="display:none;"/>
+            <img src="./images/Meinv142.jpg" width="400" style="display:none;"/>
+            <img src="./images/Meinv143.jpg" width="400" style="display:none;"/>
+            <img src="./images/Meinv144.jpg" width="400" style="display:none;"/>
+        </div>
+        <script type="text/javascript">
+            //获取轮换图片
+            var list = document.getElementById("did").getElementsByTagName("img");
+            //图片数量
+            var length=list.length;
+            var m = 0;
+            
+            //显示对应的图片
+            function doShow(m){
+                for(var i=0;i<length;i++){
+                    if(i==m){
+                        list[i].style.display="block";
+                    }else{
+                        list[i].style.display="none";
+                    }
+                }
+            }
+            
+            
+            //图片轮换播放
+            function running(){
+                m++;
+                if(m>=length){
+                    m=0;
+                }
+                doShow(m);
+                setTimeout("running()",1000);
+            }
+            
+            running();
+        </script>
+    </body>
+</html>

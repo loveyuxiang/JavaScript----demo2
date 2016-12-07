@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JavaScript实例</title>
+        <style type="text/css">
+            #menu ul,#menu ul li{margin:0px;padding:0px;}
+            #menu ul{list-style:none;}
+            #menu{
+                width:120px;
+                position:absolute;
+                display:none;
+            }
+            #menu ul li{line-height:25px;
+                        text-align:center;
+                        margin-bottom:2px;
+                        background-color:#ddd;}
+            #menu ul li:hover{background-color:#fc0;}
+        </style>
+    </head>
+    <body>
+        <h3>JavaScript事件实例:鼠标的右击事件</h3>
+        <div id="menu">
+            <ul>
+                <li>网站首页</li>
+                <li>商品列表</li>
+                <li>我要登录</li>
+                <li>快速留言</li>
+                <li>其他操作</li>
+            </ul>
+        </div>
+        <script type="text/javascript">
+            var menu = document.getElementById("menu");
+           //当前页面的鼠标右击事件
+           window.document.oncontextmenu=function(ent){
+                //获取兼容浏览器的事件对象
+                var event = ent?ent:window.event;
+                //获取鼠标点击位置
+                var x = event.clientX;
+                var y = event.clientY;
+                //设置menu的位置
+                menu.style.top=y+"px";
+                menu.style.left=x+"px";
+                menu.style.display="block";
+                return false;
+           }
+           
+           menu.onclick = function(){this.style.display="none";}
+           
+           
+        </script>
+    </body>
+</html>

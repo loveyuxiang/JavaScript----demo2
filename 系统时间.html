@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'/>
+        <title>JavaScript实例</title>
+        <script type="text/javascript" src="./date/WdatePicker.js"></script>
+    </head>
+    <body>
+        <h3>JavaScript实例：Date日期对象</h3>
+        <div id="did" style="font-size:30px"></div>
+        <h3>使用日历插件</h3>
+        <input type="text" class="Wdate" value="2015-03-15" onClick="WdatePicker()"/>
+        <script type="text/javascript">
+            
+            function showdate(){
+                //实例化日期对象
+                var date = new Date();
+                
+                //date.setTime(时间);
+                //获取当前日期对象中的信息（年月日时分秒）
+                var yy = date.getFullYear();
+                var mm = date.getMonth()+1;
+                var dd = date.getDate();
+                var h = date.getHours();
+                var m = date.getMinutes();
+                var s = date.getSeconds();
+                //拼装字串
+                var str = yy+"-"+mm+"-"+dd+" "+h+":"+m+":"+s;
+                //输出到div中
+                document.getElementById("did").innerHTML=str;
+            }
+            
+            //定义每一秒调用函数一次
+            setInterval("showdate()",1000);
+            
+        </script>
+    
+    </body>
+</html>

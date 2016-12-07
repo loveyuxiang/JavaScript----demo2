@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>JavaScript语法</title>
+        <script type="text/javascript">
+            var city=new Array();
+            city[0]=["济南","青岛","烟台","威海"]; //山东
+            city[1]=["石家庄","保定","廊坊","唐山"]; //河北
+            city[2]=["西安","渭南","宝鸡","华阴"]; //陕西
+            city[3]=["太原","大同","运城","临汾"]; //山西
+            
+            //级联操作市下拉框
+            function doChange(id){
+                //获取市下拉框
+                var sid = document.getElementById("sid");
+                sid.length=1; //将下框长度改为1，清除其他下拉项
+                //遍历对应的城市信息
+                for(var i=0;i<city[id].length;i++){
+                    //创建下拉项
+                    var opt = new Option(city[id][i],i);
+                    //将创建的下拉项添加到下拉框sid中
+                    sid.add(opt);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h3>JavaScript中的Change的下拉级联事件实例</h3>
+        <select name="cid" onChange="doChange(this.value)">
+            <option>-请选择-</option>
+            <option value="0">山东</option>
+            <option value="1">河北</option>
+            <option value="2">陕西</option>
+            <option value="3">山西</option>
+        </select>省
+        <select name="id" id="sid">
+            <option>-请选择-</option>
+            
+        </select>市
+    </body>
+</html>
